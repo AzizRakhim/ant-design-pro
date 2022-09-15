@@ -1,0 +1,38 @@
+[
+  {
+      "nom": "youssef",
+      "genre": "M"
+  },
+  {
+      "nom": "franc",
+      "genre": "M"
+  },
+  {
+      "nom": "luca",
+      "genre": "M"
+  },
+  {
+      "nom": "jamil",
+      "genre": "M"
+  },
+  {
+      "nom": "ahmed",
+      "genre": "M"
+  },
+  {
+      "nom": "mahdi",
+      "genre": "M"
+  },
+  {
+      "nom": "sami",
+      "genre": "M"
+  },
+  {
+      "nom": "samar",
+      "genre": "F"
+  },
+  {
+      "nom": "amals",
+      "genre": "F"
+  }
+]
