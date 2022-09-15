@@ -192,16 +192,26 @@ const Welcome: React.FC = () => {
 
   // LOCALSTORAGE
 
-  const getLayouts = () => {
-    const savedLayouts = localStorage.getItem('grid-layout');
+  const [savedLayouts, setSavedLayouts] = useState<any>({
+    lg: layout.lg,
+    md: layout.md,
+    sm: layout.sm,
+    xs: layout.xs,
+  });
 
-    return savedLayouts
-      ? JSON.parse(savedLayouts)
-      : { lg: layout.lg, md: layout.md, sm: layout.sm, xs: layout.xs };
-  };
+  useEffect(() => {
+    const hasSavedLayouts = localStorage && localStorage.getItem('grid-layout');
+    setSavedLayouts(
+      hasSavedLayouts
+        ? JSON.parse(hasSavedLayouts)
+        : { lg: layout.lg, md: layout.md, sm: layout.sm, xs: layout.xs },
+    );
+  }, []);
 
   const handleLayoutChange = (layout: any, layouts: any) => {
     localStorage.setItem('grid-layout', JSON.stringify(layouts));
+
+    setSavedLayouts(layouts);
   };
 
   return (
@@ -247,7 +257,7 @@ const Welcome: React.FC = () => {
           </p>
           <ResponsiveGridLayout
             className="layout"
-            layouts={getLayouts()}
+            layouts={savedLayouts}
             breakpoints={{ lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0 }}
             cols={{ lg: 12, md: 9, sm: 8, xs: 6, xxs: 4 }}
             rowHeight={30}
